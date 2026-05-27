@@ -1,0 +1,184 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informații Box</title>
+    <style>
+        /* Variabile pentru culori (Modul Luminos și Întunecat) */
+        :root {
+            --bg-body: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-color: #333333;
+            --border-color: #444444;
+            --glove-color: #d32f2f;
+            --glove-wrap: #eaeaea;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #18191a;
+            --bg-card: #242526;
+            --text-color: #f5f6f7;
+            --border-color: #888888;
+            --glove-color: #ff5252;
+            --glove-wrap: #444444;
+        }
+
+        /* Stiluri generale și centrare */
+        body {
+            font-family: sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrează pe orizontală */
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Butonul de schimbare temă */
+        .btn-tema {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        /* Caseta principală care imită foaia din schiță */
+        .wrapper {
+            width: 100%;
+            max-width: 500px; /* Lățimea maximă a paginii */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Caseta de SUS (Mănușa) */
+        .box-sus {
+            background-color: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Desenare mănușă de box din CSS */
+        .manusa {
+            width: 140px;
+            height: 180px;
+            background-color: var(--glove-color);
+            border-radius: 70px 70px 60px 60px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Degetul mare al mănușii */
+        .manusa::after {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 65px;
+            background-color: var(--glove-color);
+            right: -20px;
+            top: 70px;
+            border-radius: 25px;
+            transform: rotate(-20px);
+        }
+
+        /* Fașa/Încheietura mănușii */
+        .manusa-baza {
+            position: absolute;
+            bottom: -25px;
+            left: 15px;
+            width: 110px;
+            height: 35px;
+            background-color: var(--glove-wrap);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        /* Caseta de JOS (Textul cu informații) */
+        .box-jos {
+            background-color: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .box-jos h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        /* MEDIA QUERIES (Pentru ecrane mici de telefon) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .box-sus {
+                height: 280px; /* Caseta de sus devine mai mică pe telefon */
+            }
+
+            .manusa {
+                transform: scale(0.8); /* Micșorăm mănușa vizual */
+            }
+
+            .box-jos {
+                padding: 15px;
+            }
+
+            .box-jos p {
+                font-size: 14px; /* Textul devine puțin mai mic pe mobil */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-tema" id="butonTema">Schimbă în Dark Mode</button>
+
+    <div class="wrapper">
+        
+        <div class="box-sus">
+            <div class="manusa">
+                <div class="manusa-baza"></div>
+            </div>
+        </div>
+
+        <div class="box-jos">
+            <h2>Istoric și Reguli</h2>
+            <p>Boxul este un sport olimpic antic, cunoscut și sub numele de „Arta Dulce". În ring, doi sportivi își folosesc exclusiv pumnii protejați de mănuși speciale pentru a acumula puncte sau pentru a obține victoria prin knockout (KO).</p>
+            <p>Meciurile sunt împărțite în reprize numite runde, iar sportivii sunt asistați de un arbitru care se asigură că sunt respectate regulile: fără lovituri sub centură sau în spatele capului.</p>
+        </div>
+
+    </div>
+
+    <script>
+        const buton = document.getElementById('butonTema');
+        
+        buton.addEventListener('click', () => {
+            // Verificăm dacă tema actuală este deja dark
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                // Dacă este dark, o scoatem (trece pe light)
+                document.documentElement.removeAttribute('data-theme');
+                buton.textContent = 'Schimbă în Dark Mode';
+            } else {
+                // Dacă este light, adăugăm atributul de dark
+                document.documentElement.setAttribute('data-theme', 'dark');
+                buton.textContent = 'Schimbă în Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>
