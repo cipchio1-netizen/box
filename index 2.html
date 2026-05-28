@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+<head>
+<title>Box</title>
+<style>
+ 
+button{
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.dark{
+    background-color: #222;
+    color: white;
+}
+.dark h1,
+.dark h2{
+    color: black;
+}
+
+.ing{
+    display: flex;
+    gap: 4%;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px){
+    .ing{
+        flex-direction: column;
+    }
+
+    .ing img{
+        width: 100% !important;
+    }
+
+    .ing div:last-child{
+        font-size: 5vw !important;
+    }
+  }
+
+.img-box {
+    position: relative;
+    display: inline-block;
+}
+
+.img-box::after {
+    content: "Acesta este un boxer";
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 8px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.img-box:hover::after {
+    opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+
+<div style="display: flex; align-items: center;">
+    <a href="https://diana15m.github.io/retete/" style="text-decoration: none;"><h1 style="color: crimson; margin: 2%; font-size: 6vw; white-space: nowrap;" >Box</h1></a></div>
+
+<hr>
+
+<button onclick="tema()">Dark / Light mode</button>
+
+<h1 style="color: red; text-align: center; font-size: 6vw;">Esența Succesului în Box: Dincolo de Aur și Centur</h1>
+
+<div style="width: 100%; ">
+    <div class="ing" style="display: flex; gap: 4%; float: left; margin: 0 2vw 2vw 0; ">
+        <div class="img-box">
+            <img src="box.png" alt="boxeur" style="width: 60vw;">
+        </div>
+        <div style=" font-size: 2vw;">
+            <p>
+Această ipostază de triumf absolut nu este doar portretul unui sportiv premiat; ea este definiția vizuală a ceea ce înseamnă să atingi vârful în cel mai dur sport din lume. Imaginea unui campion unificat, înconjurat de trofeele sale, spune povestea universală a boxului prin câteva elemente fundamentale:
+<br><br>
+ Zâmbetul din spatele sacrificiului: Contrar ferocității brute asociate adesea cu această disciplină, expresia unui luptător victorios este una de o calmă seninătate. În box, zâmbetul de după meci nu vine din ușurința luptei, ci din satisfacția că sutele de ore de sparring, alergările montane până la epuizare și regimul strict de nutriție au dat roade. Este liniștea deplină de după furtună.
+ <br><br>
+ Armura de campion: Centurile care acoperă corpul unui sportiv nu sunt doar accesorii de lux; în box, ele reprezintă moneda supremă. Fiecare curea din piele și fiecare emblemă aurie poartă în spate mize uriașe, decizii de fracțiune de secundă luate sub presiune maximă în ring și abilitatea de a rezista atunci când corpul îți cere cu disperare să renunți. Ele sunt cele care transformă un simplu luptător într-o legendă.
+ <br><br>
+ Mândria originilor și respectul: Roba tradițională purtată peste șortul modern de luptă amintește de o altă latură esențială: identitatea și disciplina din școala veche. Boxul este un sport profund înrădăcinat în respect, cultură și onoarea de a-ți reprezenta oamenii și valorile pe cea mai mare scenă a lumii.
+ <br><br>
+ Singurătatea din lumina reflectoarelor: Fundalul întunecat al arenei, punctat doar de reflectoarele puternice îndreptate spre ring, reflectă perfect realitatea crudă a acestui sport. Oricât de mare și dedicată ar fi echipa din colțul tău, în momentul în care se aude gongul, boxul devine cel mai singuratic sport din lume: ești doar tu, adversarul din față și testul suprem al propriului tău caracter.
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+<script>
+function tema(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
