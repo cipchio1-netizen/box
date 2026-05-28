@@ -1,0 +1,15 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>// Preluăm butonul din HTML folosind ID-ul
+const buton = document.getElementById('butonTema');
+
+// Adăugăm acțiunea de click pe buton
+buton.addEventListener('click', () => {
+    // Dacă pagina are deja atributul de dark theme, îl scoatem
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        buton.textContent = 'Schimbă în Dark Mode';
+    } else {
+        // Dacă nu îl are, îl adăugăm
+        document.documentElement.setAttribute('data-theme', 'dark');
+        buton.textContent = 'Schimbă în Light Mode';
+    }
+});

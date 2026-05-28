@@ -1,0 +1,139 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>/* Variabile pentru culori (Modul Luminos implicit și Modul Întunecat) */
+:root {
+    --bg-body: #f0f2f5;
+    --bg-card: #ffffff;
+    --text-color: #333333;
+    --border-color: #444444;
+    --glove-color: #d32f2f;
+    --glove-wrap: #eaeaea;
+}
+
+[data-theme="dark"] {
+    --bg-body: #18191a;
+    --bg-card: #242526;
+    --text-color: #f5f6f7;
+    --border-color: #888888;
+    --glove-color: #ff5252;
+    --glove-wrap: #444444;
+}
+
+/* Centrarea conținutului pe mijlocul ecranului */
+body {
+    font-family: sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Stil pentru butonul de temă */
+.btn-tema {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    color: var(--text-color);
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-tema:hover {
+    opacity: 0.9;
+}
+
+/* Containerul principal care ține cele două casete din schiță */
+.wrapper {
+    width: 100%;
+    max-width: 500px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Caseta de SUS (Zona pentru desen/mănușă) */
+.box-sus {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Desenul mănușii realizat din CSS */
+.manusa {
+    width: 140px;
+    height: 180px;
+    background-color: var(--glove-color);
+    border-radius: 70px 70px 60px 60px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.manusa::after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 65px;
+    background-color: var(--glove-color);
+    right: -20px;
+    top: 70px;
+    border-radius: 25px;
+    transform: rotate(-20deg);
+}
+
+.manusa-baza {
+    position: absolute;
+    bottom: -25px;
+    left: 15px;
+    width: 110px;
+    height: 35px;
+    background-color: var(--glove-wrap);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+
+/* Caseta de JOS (Zona pentru text) */
+.box-jos {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.box-jos h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+/* MEDIA QUERIES (Ajustări automate pentru telefoane mobile) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .box-sus {
+        height: 280px; 
+    }
+
+    .manusa {
+        transform: scale(0.8); 
+    }
+
+    .box-jos {
+        padding: 15px;
+    }
+
+    .box-jos p {
+        font-size: 14px; 
+    }
+}
